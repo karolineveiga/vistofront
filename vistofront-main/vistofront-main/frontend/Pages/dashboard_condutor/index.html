@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard do Condutor</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="dashboard-container">
+
+    <header class="welcome-header">
+      <img src="../../IMGs/logo169lightjpgsemfundo.png" alt="">
+      <h1>Olá, <span id="user-name">Usuário</span> <img id="lupa" src="../../IMGs/logo169lightjpg-removebg-preview (1) (1).png" alt=""></h1>
+      <p>Pronto para sua próxima vistoria?</p>
+    </header>
+
+    <section class="quick-actions">
+      <h2>Ações Rápidas</h2>
+      <div class="quick-buttons">
+        <button onclick="abrirModalRelatorios()">📄 Ver Meus Relatórios</button>
+        <button onclick="abrirUltimaVistoria()">🕒 Ver Última Vistoria</button>
+        <button onclick="abrirModalAlterarAgendamento()">🗓️ Alterar Agendamento</button>
+        <button onclick="abrirModalNotificacoes()">🔔 Ver Notificações</button>
+      </div>
+    </section>
+
+    <section class="inspection-summary">
+      <h2>Status das suas inspeções</h2>
+      <div class="summary-cards">
+        <div class="card">
+          <span class="label">Pendentes</span>
+          <strong class="pending-inspections">Carregando...</strong>
+        </div>
+        <div class="card">
+          <span class="label">Concluídas</span>
+          <strong class="completed-inspections">Carregando...</strong>
+        </div>
+        <div class="card">
+          <span class="label">Última Inspeção</span>
+          <strong class="last-inspection">Carregando...</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="system-updates">
+      <h2>📢 Atualizações do Sistema</h2>
+      <ul>
+        <li>🚀 Nova funcionalidade: alterar agendamento com justificativa.</li>
+        <li>🔔 Notificações em tempo real implementadas.</li>
+        <li>📷 Em breve: visualização das câmeras ao vivo no pátio.</li>
+      </ul>
+    </section>
+
+    <section class="inspection-history hidden" id="inspection-history">
+      <h2>Histórico de Inspeções</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Placa</th>
+            <th>Status</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="inspections-table">
+          <!-- Dados inseridos via JS -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Modais -->
+    <div id="modal-relatorios" class="modal hidden">
+      <div class="modal-content">
+        <h2>Relatórios Recentes</h2>
+        <ul id="lista-relatorios"></ul>
+        <button class="cancel-button" onclick="fecharModal('modal-relatorios')">Fechar</button>
+      </div>
+    </div>
+
+    <div id="modal-alterar-agendamento" class="modal hidden">
+      <div class="modal-content">
+        <h2>Alterar Agendamento</h2>
+        <form id="form-alterar-agendamento">
+          <div class="form-group">
+            <label for="next-date">Nova Data</label>
+            <input type="date" id="next-date" required />
+          </div>
+          <div class="form-group">
+            <label for="novo-horario">Novo Horário</label>
+            <input type="time" id="novo-horario" required />
+          </div>
+          <div class="form-group">
+            <label for="justificativa">Justificativa</label>
+            <textarea id="justificativa" rows="3" required></textarea>
+          </div>
+          <div class="modal-actions">
+            <button type="submit" class="submit-button">Confirmar</button>
+            <button type="button" class="cancel-button" onclick="fecharModal('modal-alterar-agendamento')">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="modal-notificacoes" class="modal hidden">
+      <div class="modal-content">
+        <h2>Notificações</h2>
+        <ul id="lista-notificacoes">
+          <li>✔️ Seu veículo foi vistoriado em 22/03</li>
+          <li>📅 Vistoria agendada para 28/03 às 14h</li>
+        </ul>
+        <button class="cancel-button" onclick="fecharModal('modal-notificacoes')">Fechar</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

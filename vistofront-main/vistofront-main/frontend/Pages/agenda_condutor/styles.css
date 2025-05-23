@@ -1,0 +1,222 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estrutura base */
+  body {
+    background-color: #f7f9fc;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .login-logo {
+    padding:5px;
+    max-width: 225px;
+    width: 80%;
+    align-items: left;
+    justify-content: left;
+    position: absolute;
+    top: 0;
+    left: 0; 
+  }
+  
+  .driver-schedule-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  
+  /* Título */
+  .driver-schedule-container h1 {
+    font-size: 2rem;
+    color: #1f3a93;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Feedback vazio */
+  .empty-feedback {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .empty-feedback h3 {
+    font-size: 1.4rem;
+    color: #1f3a93;
+    margin-bottom: 0.5rem;
+  }
+  
+  .empty-feedback p {
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Seção da tabela */
+  .schedule-list {
+    width: 100%;
+  }
+  
+  .schedule-list h2 {
+    font-size: 1.2rem;
+    color: #1f3a93;
+    margin-bottom: 1rem;
+  }
+  
+  /* Tabela */
+  .schedule-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  
+  .schedule-list th, .schedule-list td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+  
+  .schedule-list th {
+    background-color: #f0f3f9;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .schedule-list tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* Botão novo agendamento */
+  .action-new-schedule {
+    text-align: center;
+  }
+  
+  #new-schedule-button {
+    background-color: #1f3a93;
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #new-schedule-button:hover {
+    background-color: #163075;
+  }
+  
+  /* Botões padrão */
+  .submit-button, .cancel-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    margin: 0.5rem;
+  }
+  
+  .submit-button {
+    background-color: #1f3a93;
+    color: white;
+  }
+  
+  .submit-button:hover {
+    background-color: #163075;
+  }
+  
+  .cancel-button {
+    background-color: #ccc;
+    color: #333;
+  }
+  
+  .cancel-button:hover {
+    background-color: #aaa;
+  }
+  
+  /* Modal */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal.hidden {
+    display: none;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  }
+  
+  .modal-content h2 {
+    color: #1f3a93;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  /* Utilitário */
+  .hidden {
+    display: none;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 600px) {
+    .modal-content {
+      margin: 1rem;
+    }
+  
+    .submit-button, .cancel-button {
+      width: 100%;
+    }
+  }
+  

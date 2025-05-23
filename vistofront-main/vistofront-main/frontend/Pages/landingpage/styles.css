@@ -1,0 +1,124 @@
+/* Reset e estrutura para fixar o footer no fim da página */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Cabeçalho */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid #007bff;
+    color: #007bff;
+}
+
+/* Seção Principal */
+.hero {
+    padding: 50px 20px;
+    background-color: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hero img {
+    width: 150px;
+    margin: 0 auto 20px;
+}
+
+.hero img {
+    width: 280px;
+    margin: 0 auto 20px;
+}
+
+.hero h2 {
+    font-size: 32px;
+    color: #333;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Destaques */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.feature {
+    background-color: #dddddd79;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 250px;
+}
+
+.icon {
+    font-size: 40px;
+}
+
+/* Rodapé fixado */
+.footer {
+<<<<<<< HEAD
+    background-color: #ddd;
+=======
+    background-color: #dddddda9;
+>>>>>>> 733fafefa3c57efc83085b3758515b05b9f8d9cc
+    padding: 15px;
+    text-align: center;
+}
+
+/* Media Queries para dispositivos móveis */
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        width: 80%;
+    }
+}

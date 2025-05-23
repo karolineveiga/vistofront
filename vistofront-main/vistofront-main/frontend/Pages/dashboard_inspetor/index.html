@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard do Inspetor</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left">
+      <h1>Olá, <span id="inspetor-nome">Inspetor</span> 👋</h1>
+      <span id="modo-operacao" class="status-indicador" title="Indica seu estado atual no sistema (Disponível, Em inspeção, Indisponível)">🟢 Disponível</span>
+    </div>
+    <div id="relogio-digital">--:--:--</div>
+    <button class="perfil-button" onclick="abrirModalPerfil()">❌ Sair</button>
+  </div>
+
+  <div class="layout">
+    <!-- Painel Lateral -->
+    <aside class="sidebar">
+      <section class="sidebar-summary">
+        <div class="summary-box">Pendentes:<br><strong id="pendentes">--</strong></div>
+        <div class="summary-box">Andamento:<br><strong id="andamento">--</strong></div>
+        <div class="summary-box">Concluídas:<br><strong id="concluidas">--</strong></div>
+      </section>
+
+      <section class="sidebar-actions">
+        <button onclick="iniciarProximaInspecao()">🚗 Iniciar Inspeção</button>
+        <button onclick="abrirModalNovaCamera()">📷 Nova Câmera</button>
+        <button onclick="window.location.href='../gestao_usuarios'">🧑 Usuários</button>
+      </section>
+
+      <section class="sidebar-agenda">
+        <h3>📅 Próximas Inspeções</h3>
+        <ul id="inspecoes-hoje">
+          <li>Nenhuma Inspeção Encontrada</li>
+        </ul>
+      </section>
+
+      <section class="sidebar-cameras">
+        <h3>📡 Câmeras Ativas</h3>
+        <div id="lista-cameras" class="camera-grid">
+          <iframe src="rtmp://vistotrack.com/live/camera1" title="Camera 1"></iframe>
+          <iframe src="rtmp://vistotrack.com/live/camera2" title="Camera 2"></iframe>
+          <iframe src="rtmp://vistotrack.com/live/camera3" title="Camera 3"></iframe>
+          <iframe src="rtmp://vistotrack.com/live/camera4" title="Camera 4"></iframe>
+        </div>
+      </section>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+
+      <div class="main-columns">
+        <section class="notificacoes">
+          <h2>🔔 Notificações</h2>
+          <ul id="lista-alertas">
+            <li>Sem alertas no momento.</li>
+          </ul>
+        </section>
+
+        <section class="atualizacoes">
+          <h2>🆕 Novidades</h2>
+          <ul>
+            <li>Bem-vindo ao novo painel do inspetor.</li>
+            <li>Agora você pode adicionar câmeras manualmente.</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="inspections-list">
+        <h2>📂 Últimas Inspeções</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Placa</th>
+              <th>Modelo</th>
+              <th>Status</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody id="historico-inspecoes">
+            <tr><td colspan="4">Nenhuma Inspeção Encontrada</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="current-inspection hidden" id="inspecao-atual">
+        <h2>🛠️ Inspeção em Andamento</h2>
+        <p><strong>Placa:</strong> <span id="inspecao-placa">---</span></p>
+        <p><strong>Modelo:</strong> <span id="inspecao-modelo">---</span></p>
+        <p><strong>Iniciada em:</strong> <span id="inspecao-inicio">---</span></p>
+        <button onclick="abrirModalFinalizar()">🛑 Finalizar Inspeção</button>
+      </section>
+
+      <section class="vehicle-info hidden" id="ficha-veiculo">
+        <h2>📋 Ficha do Veículo</h2>
+        <img id="imagem-anterior" src="" alt="Imagem anterior do veículo" />
+        <ul>
+          <li><strong>Placa:</strong> <span id="ficha-placa"></span></li>
+          <li><strong>Modelo:</strong> <span id="ficha-modelo"></span></li>
+          <li><strong>Histórico:</strong> <span id="ficha-historico"></span></li>
+        </ul>
+      </section>
+      
+      <section id="modal-nova-camera-section" style="display: none;" class="modal-overlay">
+        <div class="modal-box">
+          <h2>Nova Câmera</h2>
+      
+          <div class="form-group">
+            <label for="camera-type">Tipo de Câmera:</label>
+            <select id="camera-type" class="form-input">
+              <option value="frontal">Frontal</option>
+              <option value="posterior">Posterior</option>
+              <option value="lateral_direita">Lateral Direita</option>
+              <option value="lateral_esquerda">Lateral Esquerda</option>
+            </select>
+          </div>
+      
+          <div class="form-group">
+            <label for="patio-nome">Pátio Vinculado:</label>
+            <input type="text" id="patio-nome" class="form-input" readonly />
+          </div>
+      
+          <div class="modal-actions">
+            <button id="cancelar-modal-camera" class="btn-secundario">Cancelar</button>
+            <button id="confirmar-modal-camera" class="btn-primario">Confirmar</button>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  </div>
+</body>
+</html>

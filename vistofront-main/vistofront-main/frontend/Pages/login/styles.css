@@ -1,0 +1,191 @@
+/* 🔹 Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 🔹 Corpo da Página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color, #f4f4f4);
+    color: var(--text-color, #333);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 10px;
+}
+
+/* 🔹 Container de Login */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--container-bg-color, #fff);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+.login-logo {
+    width: 150px;
+    margin: 0 auto 20px;
+}
+
+/* 🔹 Título */
+h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color, #082fda);
+    margin-bottom: 20px;
+}
+
+/* 🔹 Formulário */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+/* 🔹 Campos de entrada */
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.3s ease-in-out;
+}
+
+/* 🔹 Remove botão nativo de mostrar senha */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-clear-button,
+input[type="password"]::-webkit-inner-spin-button {
+    display: none !important;
+}
+
+/* 🔹 Foco */
+input:focus {
+    border: 1px solid var(--primary-color, #082fda);
+    outline: none;
+}
+
+/* 🔹 Wrapper do campo de senha */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding: 12px 40px 12px 12px; /* espaço para botão à direita */
+    border: none;
+    font-size: 1rem;
+}
+
+/* 🔹 Botão de toggle de senha */
+.password-toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.password-toggle-btn img {
+    width: 22px;
+    height: 22px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.password-toggle-btn:hover img {
+    opacity: 1;
+}
+
+/* 🔹 Botão de login */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color, #082fda);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #071ec0;
+}
+
+/* 🔹 Rodapé */
+.form-footer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-footer a {
+    text-decoration: none;
+    color: var(--primary-color, #082fda);
+    font-size: 0.9rem;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* 🔹 Mensagem de erro */
+.error-message {
+    color: red;
+    margin-top: 10px;
+    display: none;
+    text-align: center;
+}
+
+/* 🔹 Responsividade */
+@media (min-width: 768px) {
+    .login-container {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    input,
+    button {
+        font-size: 1.1rem;
+    }
+}
+
+/* 🔹 Temas (Claro/Escuro via classe) */
+body.light-theme {
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --container-bg-color: #fff;
+    --primary-color: #082fda;
+}
+
+body.dark-theme {
+    --background-color: #121212;
+    --text-color: #ddd;
+    --container-bg-color: #1e1e1e;
+    --primary-color: #082fda;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - VistoTrack</title>
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="../../IMGs/logo169lightjpg-removebg-preview-_1_-_1_.ico" type="image/x-icon">
+
+    <!-- Bootstrap Icons CDN para os ícones do botão de senha -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+    <!-- JS principal -->
+    <script src="script.js" type="module" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+</head>
+<body class="light-theme">
+    <div class="login-container">
+        <!-- Logo da aplicação -->
+        <img src="logo169lightjpgsemfundo.png" alt="Logo da VistoTrack" class="login-logo" aria-label="Logo da VistoTrack" />
+
+        <h1>Login</h1>  
+
+        <form id="login-form" action="/login" method="POST">
+            <!-- Token CSRF para segurança -->
+            <input type="hidden" name="csrf_token" id="csrf_token" value="TOKEN_GERADO_NO_BACKEND" />
+
+            <!-- Campo de usuário -->
+            <div class="form-group">
+                <label for="username">Email ou Telefone</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Digite seu email ou telefone"
+                    required
+                    aria-label="Digite seu email ou telefone"
+                    pattern="^([\\w\\-.]+@[\\w\\-]+\\.[\\w\\-.]+|\\d{10,11})$"
+                />
+            </div>
+
+            <!-- Campo de senha com ícone visual -->
+            <div class="form-group password-group">
+            <label for="password">Senha</label>
+            <div class="password-wrapper">
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="Digite sua senha" 
+                    required 
+                    aria-label="Digite sua senha"
+                />
+                <button 
+                    type="button" 
+                    id="toggle-password" 
+                    class="password-toggle-btn" 
+                    aria-label="Mostrar ou ocultar senha"
+                >
+                    <img 
+                        src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/eye.svg" 
+                        alt="" 
+                        id="password-toggle-icon"
+                    />
+                </button>
+            </div>
+        </div>
+
+
+            <!-- Mensagem de erro -->
+            <div id="error-message" class="error-message">Usuário ou senha inválidos.</div>
+
+            <!-- Botão de login -->
+            <div class="form-group">
+                <button type="submit">Entrar</button>
+            </div>
+
+            <!-- Link para recuperação -->
+            <div class="form-footer">
+                <a href="#">Esqueceu sua senha?</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
